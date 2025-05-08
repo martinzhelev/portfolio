@@ -9,41 +9,94 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Custom CSS for animations and specific styling */
+        /* Custom CSS for animations, modal, and specific styling */
         .skill-card {
             transition: transform 0.3s ease;
         }
         .skill-card:hover {
             transform: scale(1.05);
         }
-        .project-img {
-            transition: opacity 0.3s ease;
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
-        .project-img:hover {
-            opacity: 0.8;
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            overflow: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .modal-content img {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+        /* Hero Section Custom Styling */
+        .hero-section {
+            background: linear-gradient(135deg, #556B2F 0%, #8A9A5B 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
     <!-- Navigation -->
-    <nav class="bg-gray-800 text-white p-4 sticky top-0 z-10">
+    <nav class="bg-olive-700 text-white p-4 sticky top-0 z-10">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Martin Zhelev</h1>
             <div class="space-x-4">
-                <a href="#home" class="hover:text-gray-300">Home</a>
-                <a href="#skills" class="hover:text-gray-300">Skills</a>
-                <a href="#projects" class="hover:text-gray-300">Projects</a>
-                <a href="#resume" class="hover:text-gray-300">Resume</a>
+                <a href="#home" class="hover:text-olive-100">Home</a>
+                <a href="#skills" class="hover:text-olive-100">Skills</a>
+                <a href="#projects" class="hover:text-olive-100">Projects</a>
+                <a href="#resume" class="hover:text-olive-100">Resume</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center bg-gradient-to-r from-blue-500 to-purple-600">
-        <div class="container mx-auto px-4 text-white">
-            <h1 class="text-5xl font-bold mb-4">Hi, I'm Martin Zhelev</h1>
-            <p class="text-xl mb-6">Full Stack Developer | Problem Solver | Tech Enthusiast</p>
-            <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">View My Work</a>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Hi, I'm Martin Zhelev</h1>
+            <p class="text-xl md:text-2xl mb-6">Full Stack Developer | Problem Solver | Tech Enthusiast</p>
+            <a href="#projects" class="bg-white text-olive-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300">View My Work</a>
         </div>
     </section>
 
@@ -58,7 +111,7 @@
                     <h3 class="text-xl font-semibold">JavaScript</h3>
                 </div>
                 <div class="skill-card bg-white p-6 rounded-lg shadow-lg text-center">
-                    <i class="fab fa-cuttlefish text-4xl text-blue-600 mb-4"></i>
+                    <i class="fab fa-cuttlefish text-4xl text-olive-600 mb-4"></i>
                     <h3 class="text-xl font-semibold">C++ / C#</h3>
                 </div>
                 <div class="skill-card bg-white p-6 rounded-lg shadow-lg text-center">
@@ -66,15 +119,15 @@
                     <h3 class="text-xl font-semibold">HTML/CSS</h3>
                 </div>
                 <div class="skill-card bg-white p-6 rounded-lg shadow-lg text-center">
-                    <i class="fab fa-bootstrap text-4xl text-purple-600 mb-4"></i>
+                    <i class="fab fa-bootstrap text-4xl text-olive-600 mb-4"></i>
                     <h3 class="text-xl font-semibold">Bootstrap/Tailwind</h3>
                 </div>
                 <div class="skill-card bg-white p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-database text-4xl text-green-500 mb-4"></i>
+                    <i class="fas fa-database services text-4xl text-olive-500 mb-4"></i>
                     <h3 class="text-xl font-semibold">MySQL/MongoDB</h3>
                 </div>
                 <div class="skill-card bg-white p-6 rounded-lg shadow-lg text-center">
-                    <i class="fab fa-node text-4xl text-green-600 mb-4"></i>
+                    <i class="fab fa-node text-4xl text-olive-600 mb-4"></i>
                     <h3 class="text-xl font-semibold">Node.js/Express</h3>
                 </div>
                 <div class="skill-card bg-white p-6 rounded-lg shadow-lg text-center">
@@ -90,106 +143,113 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 1: Portfolio Website -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-images='["imgs/admin panel.png", "imgs/folders.png", "imgs/portfolio video.png"]'>
+                    <img src="imgs/portfolio video.png" alt="Portfolio website" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Portfolio website for a cinematography business</h3>
-                        <p class="text-gray-600 mb-4">This is a portfolio website I made for a small business, where they can upload all pictures and videos using URL links, and they can update the text information, for example the abouts us section. All this is done using the admin panel. I used React + Express.js + MySQL to build the website.</p>
-                        <div class="grid grid-cols-2 gap-2 mb-4">
-                            <img src="imgs/admin panel.png" alt="Admin panel" class="project-img rounded">
-                            <img src="imgs/folders.png" alt="folders that contain videos" class="project-img rounded">
-                            <img src="imgs/portfolio video.png" alt="video that is uploaded" class="project-img rounded">
-
+                        <h3 class="text-2xl font-semibold mb-2">Cinematography Portfolio Website</h3>
+                        <p class="text-gray-600 mb-4">Developed a dynamic portfolio website for a cinematography business, featuring an admin panel for uploading media and updating content. Built with React, Express.js, and MySQL.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">React</span>
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">Express.js</span>
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">MySQL</span>
                         </div>
                         <a href="https://github.com/martinzhelev/JordanPavlov-portfolio-video-site" target="_blank" 
-                           class="text-blue-600 hover:underline flex items-center">
+                           class="text-olive-600 hover:underline flex items-center" onclick="event.stopPropagation();">
                             <i class="fab fa-github mr-2"></i>View on GitHub
                         </a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 2: Chess JavaScript -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-images='["imgs/board.png", "imgs/queen checks.png", "imgs/check popup.png"]'>
+                    <img src="imgs/board.png" alt="Chess board" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Chess made with JavaScript</h3>
-                        <p class="text-gray-600 mb-4">This is the game of chess with movable pieces, takes and checks (no checkmate yet). It is made using JavaScript</p>
-                        <div class="grid grid-cols-2 gap-2 mb-4">
-                            <img src="imgs/board.png" alt="Chess board" class="project-img rounded">
-                            <img src="imgs/queen checks.png" alt="Queen checks" class="project-img rounded">
-                            <img src="imgs/check popup.png" alt="Check alert" class="project-img rounded">
-
+                        <h3 class="text-2xl font-semibold mb-2">Chess Game (JavaScript)</h3>
+                        <p class="text-gray-600 mb-4">A chess game with movable pieces, captures, and check detection (checkmate in progress). Built using vanilla JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">JavaScript</span>
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">HTML/CSS</span>
                         </div>
                         <a href="https://github.com/martinzhelev/chess-validator-JS" target="_blank" 
-                           class="text-blue-600 hover:underline flex items-center">
+                           class="text-olive-600 hover:underline flex items-center" onclick="event.stopPropagation();">
                             <i class="fab fa-github mr-2"></i>View on GitHub
                         </a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 3: Circle Intersections -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-images='["imgs/circles1.png", "imgs/circles2.png", "imgs/circles3.png", "imgs/circles4.png"]'>
+                    <img src="imgs/circles1.png" alt="Circle intersections" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Circle intersections</h3>
-                        <p class="text-gray-600 mb-4">This is one my course works that I did for my university. It gets a 1000 circles all with one center and radiuses 1, 2, 3 and a line that has 2 points, start and end. The program checks how many intersections does the line have with the circles. It is coded using C#.</p>
-                        <div class="grid grid-cols-2 gap-2 mb-4">
-                            <img src="imgs/circles1.png" alt="Test screen" class="project-img rounded">
-                            <img src="imgs/circles2.png" alt="Test screen" class="project-img rounded">
-                            <img src="imgs/circles3.png" alt="Test screen" class="project-img rounded">
-                            <img src="imgs/circles4.png" alt="Test screen" class="project-img rounded">
-
+                        <h3 class="text-2xl font-semibold mb-2">Circle Intersections Analysis</h3>
+                        <p class="text-gray-600 mb-4">A university coursework project analyzing intersections between a line and 1000 circles with varying radii. Implemented in C#.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">C#</span>
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">Algorithms</span>
                         </div>
                         <a href="https://github.com/martinzhelev/course-work-analisys-of-algorithms" target="_blank" 
-                           class="text-blue-600 hover:underline flex items-center">
+                           class="text-olive-600 hover:underline flex items-center" onclick="event.stopPropagation();">
                             <i class="fab fa-github mr-2"></i>View on GitHub
                         </a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 4: Chess C++ -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-images='["imgs/chess invalid move.png", "imgs/checkmate.png"]'>
+                    <img src="imgs/checkmate.png" alt="Chess C++" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Chess C++</h3>
-                        <p class="text-gray-600 mb-4">This is also a chess app, but its entirely done in C++ and all of the OOP principles are followed to write the code. Doesn't work perfectly, but this is one my first bigger projects.</p>
-                        <div class="grid grid-cols-2 gap-2 mb-4">
-                            <img src="imgs/chess invalid move.png" alt="Test screen" class="project-img rounded">
-                            <img src="imgs/checkmate.png" alt="Test screen" class="project-img rounded">
-                         
-
+                        <h3 class="text-2xl font-semibold mb-2">Chess Game (C++)</h3>
+                        <p class="text-gray-600 mb-4">A chess application built in C++ adhering to OOP principles. One of my early projects with ongoing improvements.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">C++</span>
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">OOP</span>
                         </div>
                         <a href="https://github.com/martinzhelev/chess-validator" target="_blank" 
-                           class="text-blue-600 hover:underline flex items-center">
+                           class="text-olive-600 hover:underline flex items-center" onclick="event.stopPropagation();">
                             <i class="fab fa-github mr-2"></i>View on GitHub
                         </a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 5: Pharmacy OOP -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-images='["imgs/pharmacy.png"]'>
+                    <img src="imgs/pharmacy.png" alt="Pharmacy app" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Pharmacy OOP</h3>
-                        <p class="text-gray-600 mb-4">This is a basic pharmacy app, which was built for a course work for my university. I learned about OOP principles while building it. I used C++.</p>
-                        <div class="grid grid-cols-2 gap-2 mb-4">
-                            <img src="imgs/pharmacy.png" alt="Test screen" class="project-img rounded">
-                         
-
+                        <h3 class="text-2xl font-semibold mb-2">Pharmacy Management App</h3>
+                        <p class="text-gray-600 mb-4">A university coursework project for managing pharmacy operations, built in C++ to learn OOP principles.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">C++</span>
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">OOP</span>
                         </div>
                         <a href="https://github.com/martinzhelev/pharmacy" target="_blank" 
-                           class="text-blue-600 hover:underline flex items-center">
+                           class="text-olive-600 hover:underline flex items-center" onclick="event.stopPropagation();">
                             <i class="fab fa-github mr-2"></i>View on GitHub
                         </a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 6: The Stalker Game -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-images='["imgs/the stalker.png"]'>
+                    <img src="imgs/the stalker.png" alt="The Stalker game" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">The Stalker game</h3>
-                        <p class="text-gray-600 mb-4">This is a fun multiple choice game that I built while on lockdown. Nothing serious just had some time and basic knowledge. There is only one way to win. Its made in C++.</p>
-                        <div class="grid grid-cols-2 gap-2 mb-4">
-                            <img src="imgs/the stalker.png" alt="Test screen" class="project-img rounded">
-                         
-
+                        <h3 class="text-2xl font-semibold mb-2">The Stalker Game</h3>
+                        <p class="text-gray-600 mb-4">A fun multiple-choice text-based game built in C++ during lockdown, featuring a single winning path.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-olive-100 text-olive-800 text-sm font-semibold px-2.5 py-0.5 rounded">C++</span>
                         </div>
                         <a href="https://github.com/martinzhelev/The-stalker" target="_blank" 
-                           class="text-blue-600 hover:underline flex items-center">
+                           class="text-olive-600 hover:underline flex items-center" onclick="event.stopPropagation();">
                             <i class="fab fa-github mr-2"></i>View on GitHub
                         </a>
                     </div>
                 </div>
-                <!-- Add more project cards as needed -->
             </div>
         </div>
     </section>
+
+    <!-- Modal for Image Gallery -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <div id="modalImages"></div>
+        </div>
+    </div>
 
     <!-- Resume Section -->
     <section id="resume" class="py-16">
@@ -197,25 +257,53 @@
             <h2 class="text-4xl font-bold text-center mb-12">Resume</h2>
             <div class="bg-white p-8 rounded-lg shadow-lg">
                 <h3 class="text-2xl font-semibold mb-4">Education</h3>
-                <p class="mb-4">Your University - Degree (Year)</p>
+                <div class="mb-6">
+                    <h4 class="font-semibold">Bachelor's in Software Engineering - Ruse University "Angel Kanchev"</h4>
+                    <p class="text-gray-600">September 2021 - Present</p>
+                    <p class="text-gray-600">Main Subjects: Computer Graphics, Databases, Internet and Web Technologies, Programming</p>
+                </div>
                 
                 <h3 class="text-2xl font-semibold mb-4">Experience</h3>
                 <div class="mb-6">
-                    <h4 class="font-semibold">Job Title - Company</h4>
-                    <p class="text-gray-600">Year - Year</p>
+                    <h4 class="font-semibold">Multimedia Technician - Ruse University "Angel Kanchev"</h4>
+                    <p class="text-gray-600">April 2023 - Present</p>
                     <ul class="list-disc pl-5">
-                        <li>Responsibility 1</li>
-                        <li>Responsibility 2</li>
+                        <li>Resolved issues with projectors, large touchscreen TVs, and information screens.</li>
+                        <li>Managed online streaming and audio/video mixing systems.</li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-semibold">Programming Mentor - Mindhub</h4>
+                    <p class="text-gray-600">April 2022 - April 2023</p>
+                    <ul class="list-disc pl-5">
+                        <li>Delivered engaging lectures and hands-on programming workshops in Scratch and Python.</li>
+                        <li>Fostered foundational coding skills for children aged 7 to 14.</li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-semibold">Bartender/Barista - Bar "Vibe"</h4>
+                    <p class="text-gray-600">May 2021 - April 2022</p>
+                    <ul class="list-disc pl-5">
+                        <li>Mixed cocktails and soft drinks under high-pressure conditions.</li>
+                        <li>Maintained a sanitary workplace and engaged in active customer communication.</li>
                     </ul>
                 </div>
 
                 <h3 class="text-2xl font-semibold mb-4">Skills Summary</h3>
-                <p>Languages: JS, C++, C#, SQL</p>
-                <p>Frameworks: Node.js, Express, Bootstrap, Tailwind</p>
-                <p>Databases: MySQL, MongoDB</p>
-                <p>Other: Algorithms, Database Design</p>
+                <p><strong>Languages:</strong> JavaScript, C++, C#, SQL, HTML, CSS</p>
+                <p><strong>Frameworks:</strong> Node.js, Express.js, React.js, Bootstrap, Tailwind CSS</p>
+                <p><strong>Databases:</strong> MySQL, MongoDB</p>
+                <p><strong>Other:</strong> REST APIs, Algorithms, Multimedia Skills (Photoshop, Premiere Pro), Advanced Computer Literacy, Office 365</p>
+                <p><strong>Soft Skills:</strong> Responsibility, Strong Communication, Quick Adaptability, Teamwork, Ability to Work Under Pressure</p>
                 
-                <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
+                <h3 class="text-2xl font-semibold mb-4">Languages</h3>
+                <p><strong>Bulgarian:</strong> Native</p>
+                <p><strong>English:</strong> Fluent (Comprehension, Speaking, Writing)</p>
+                
+                <h3 class="text-2xl font-semibold mb-4">Certifications</h3>
+                <p>National Online Digital Competence Assessment</p>
+                
+                <a href="CV_Martin_Zhelev.pdf" class="mt-6 inline-block bg-olive-600 text-white px-6 py-2 rounded-full hover:bg-olive-700">
                     Download PDF Resume
                 </a>
             </div>
@@ -223,13 +311,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4 text-center">
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <footer class="bg-olive-700 text-white p-4 text-center">
+        <p>© 2025 Martin Zhelev. All rights reserved.</p>
         <div class="mt-2">
-            <a href="https://github.com/yourusername" class="text-gray-300 hover:text-white mx-2">
+            <a href="https://github.com/martinzhelev" class="text-olive-100 hover:text-white mx-2">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/yourusername" class="text-gray-300 hover:text-white mx-2">
+            <a href="https://www.linkedin.com/in/martin-zhelev-348503265/" class="text-olive-100 hover:text-white mx-2">
                 <i class="fab fa-linkedin"></i>
             </a>
         </div>
@@ -247,12 +335,54 @@
             });
         });
 
-        // Simple project gallery preview (could be expanded)
-        document.querySelectorAll('.project-img').forEach(img => {
-            img.addEventListener('click', () => {
-                alert('Full project preview coming soon!');
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImages = document.getElementById('modalImages');
+        const closeModal = document.querySelector('.close-modal');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const images = JSON.parse(card.getAttribute('data-images'));
+                modalImages.innerHTML = '';
+                images.forEach(imgSrc => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.alt = 'Project screenshot';
+                    modalImages.appendChild(img);
+                });
+                modal.style.display = 'flex';
             });
         });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- Tailwind Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        olive: {
+                            100: '#E6E9D8',
+                            500: '#8A9A5B',
+                            600: '#556B2F',
+                            700: '#4A5A27',
+                            800: '#3F4A20'
+                        }
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>
